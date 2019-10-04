@@ -3,8 +3,8 @@
 # This should be a dictionary with group names as keys and a list of hosts that
 # are members of the group as values. E.g.
 #
-# web:
-#   - web001
+webserver:
+ - pu001
 #   - web002
 # db:
 #   - db001

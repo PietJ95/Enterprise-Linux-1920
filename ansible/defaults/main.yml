@@ -1,4 +1,2 @@
-# group_vars/all.yml
-# Variables visible to all nodes
 ---
 motd_contact_email: 'piet.jacobs@student.hogent.be'

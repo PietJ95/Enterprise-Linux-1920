@@ -1,7 +1,7 @@
 #! /usr/bin/env bats
 #
 # Acceptance test script for srv010
-admin_user=bert
+admin_user=piet
 
 @test "SELinux should be set to 'Enforcing'" {
   [ 'Enforcing' = $(getenforce) ]
