@@ -30,7 +30,8 @@ Problems I encountered and their solution:
     Finally figured out it was the role "wheels" and not "adm" or "root"
 
 - I had issues with properly making a public ssh key (tried using putty but ansible kept giving me wrong key format error)
-    - Solution: Turns out I already had a id_rsa.pub in /.ssh on my host machine (it's there for github ssh), so I also just used that one for my vm's.
+    - Solution:   
+    Turns out I already had a id_rsa.pub in /.ssh on my host machine (it's there for github ssh), so I also just used that one for my vm's.
 ## Resources
 
 - Stackoverflow.com
