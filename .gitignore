@@ -25,3 +25,6 @@ ansible/roles/*.*
 # Ansible Retry-files and fact cache
 *.retry
 .ansible_cache/
+
+# Ssh public key
+ansible/group_vars/id_rsa.pub
