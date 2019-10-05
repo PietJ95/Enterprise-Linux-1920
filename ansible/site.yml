@@ -4,6 +4,11 @@
 - hosts: pu001
   become: true
   remote_user: root
+  roles:
+    - bertvv.mariadb
+    - bertvv.httpd
+    - bertvv.wordpress
+
 
 
 - hosts: all
@@ -15,6 +20,23 @@
 
     - name: Enable firewalld
       service: name=firewalld state=started enabled=yes
+
+    - name: allow http through firewalld
+      firewalld:
+          service: http
+          permanent: yes
+          state: enabled
+
+    - name: allow https through firewalld
+      firewalld:
+          service: https
+          permanent: yes
+          state: enabled
+
+    - name: restart firewalld service
+      service:
+        name: firewalld
+        state: restarted
 
     - name: install git
       yum:
