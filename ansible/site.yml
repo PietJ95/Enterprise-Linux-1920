@@ -61,10 +61,15 @@
       user:
         name: piet
         comment: Piet Jacobs
-        append: yes
-        groups: root
+        group: "wheel"
 
     - name: "set motd banner"
       template:
         src: "motd.j2"
         dest: "/etc/motd"
+
+    - name: Set authorized key taken from file
+      authorized_key:
+        user: piet
+        state: present
+        key: "{{ lookup('file', '/vagrant/ansible/group_vars/id_rsa.pub') }}"
