@@ -26,17 +26,16 @@
           service: http
           permanent: yes
           state: enabled
+      notify:
+        - restart firewalld
 
     - name: allow https through firewalld
       firewalld:
           service: https
           permanent: yes
           state: enabled
-
-    - name: restart firewalld service
-      service:
-        name: firewalld
-        state: restarted
+      notify:
+        - restart firewalld
 
     - name: install git
       yum:
@@ -94,4 +93,10 @@
       authorized_key:
         user: piet
         state: present
-        key: "{{ lookup('file', '/vagrant/ansible/group_vars/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/vagrant/ansible/files/id_rsa.pub') }}"
+
+  handlers: 
+    - name: restart firewalld
+      service: 
+        name: firewalld
+        state: restarted

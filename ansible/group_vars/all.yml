@@ -2,3 +2,5 @@
 # Variables visible to all nodes
 ---
 motd_contact_email: 'piet.jacobs@student.hogent.be'
+httpd_ssl_certificate_key_file: 'ca.key'
+httpd_ssl_certificate_file: 'ca.crt'
