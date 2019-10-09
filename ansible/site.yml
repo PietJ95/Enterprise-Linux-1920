@@ -15,6 +15,13 @@
   roles:
     - bertvv.bind
 
+- hosts: pr011
+  become: true 
+  remote_user: root
+  roles:
+    - bertvv.samba
+    - bertvv.vsftpd
+
 # - hosts: all
 #   tasks:
 #     - name: start firewalld
