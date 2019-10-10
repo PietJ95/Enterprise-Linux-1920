@@ -10,8 +10,8 @@
 sut_ip=172.16.192.11   # IP of the system under test
 sut_wins_name=FILES    # NetBIOS name
 workgroup=AVALON       # Workgroup
-admin_user=bert        # User with admin privileges
-admin_password=bert
+admin_user=piet        # User with admin privileges
+admin_password=admin123
 
 samba_share_root=/srv/shares # Root directory of shares
 # The name of a directory and file that will be created to test for
