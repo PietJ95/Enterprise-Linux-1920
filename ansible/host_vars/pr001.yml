@@ -1,0 +1,66 @@
+# bind vars
+bind_allow_query: 
+  - any
+bind_listen_ipv4:
+  - any
+bind_zone_master_server_ip: 172.16.192.1
+bind_forwarders:
+      - '8.8.8.8'
+      - '8.8.4.4'
+bind_zone_domains:
+  - name: 'avalon.lan'
+    networks: 
+      - '172.16.192'
+      - '192'
+    name_servers:
+      - pr001
+      - pr002
+
+    hosts:
+      #forward lookups
+    - name: pu001
+      ip: 192.0.2.10
+      aliases:
+        - www
+
+    - name: pu002
+      ip: 192.0.2.20
+      aliases:
+        - mail
+
+    - name: pr001
+      ip: 172.16.192.1
+      aliases:
+        - ns1
+
+    - name: pr002
+      ip: 172.16.192.2
+      aliases:
+        - ns2
+
+    - name: pr003
+      ip: 172.16.192.3
+      aliases:
+        - dhcp
+
+    - name: pr004
+      ip: 172.16.192.4
+      aliases:
+        - directory
+
+    - name: pr010
+      ip: 172.16.192.10
+      aliases:
+        - inside
+
+    - name: pr011
+      ip: 172.16.192.11
+      aliases:
+        - files
+
+    #reverse lookups
+    #...
+    
+    mail_servers:
+      - name: pu002
+        preference: 10

@@ -1,0 +1,15 @@
+#pu001 vars
+---
+rhbase_firewall_allow_services:
+  - http
+  - https
+
+#mariadb vars
+mariadb_databases:
+  - name: wordpress
+mariadb_users: 
+  - name: piet
+    password: testPass
+    priv: '*.*:ALL'
+ 
+mariadb_root_password: 'Ro0tP4sS'
