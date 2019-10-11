@@ -11,6 +11,12 @@ rhbase_user_groups:
   - public
 
 rhbase_users:
+  - name: piet
+    comment: 'Admin Piet'
+    groups: 
+      - public
+      - it
+
   - name: stevenh
     comment: 'Steven H'
     shell: /sbin/nologin
@@ -58,8 +64,8 @@ rhbase_users:
   - name: benoitp
     shell: /sbin/nologin
     groups:
-      - public
       - sales
+      - public
 
   - name: anc
     shell: /sbin/nologin
@@ -97,29 +103,33 @@ samba_shares:
   - name: management
     group: management
     browsable: 'no'
+    valid_users: +management
     write_list: +management
 
-  - name: technical (software development)
+  - name: technical
     group: technical
     browsable: 'yes'
+    valid_users: +public
     write_list: +technical
 
   - name: sales
     group: sales
-    browsable: 'no'
-    valid_users: +management
+    browsable: 'yes'
+    valid_users: +sales, +management
     write_list: +sales
 
-  - name: it (system administrator)
+  - name: it
     group: it
-    browsable: 'no'
-    valid_users: +management
+    browsable: 'yes'
+    valid_users: +it, +management
     write_list: +it
 
   - name: public
     group: public
     public: 'yes'
     browsable: 'yes'
+    setype: public_content_t
+    write_list: +public
 
 samba_users:
   - name: stevenh

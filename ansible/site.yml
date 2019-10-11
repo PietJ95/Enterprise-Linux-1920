@@ -25,6 +25,7 @@
   become: true 
   remote_user: root
   roles:
+    - bertvv.rh-base
     - bertvv.samba
     - bertvv.vsftpd
 
