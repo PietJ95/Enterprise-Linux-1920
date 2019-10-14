@@ -1,54 +1,13 @@
-- name: Stard and enable firewalld
+- name: Start and enable firewalld
   service: name=firewalld state=started enabled=yes
-
-- name: install git
-  yum:
-    name: git
-    state: present
-
-- name: install nano
-  yum: 
-    name: nano
-    state: present
-
-- name: install tree
-  yum: 
-    name: tree
-    state: present
-
-- name: install vim-enhanced
-  yum: 
-    name: vim-enhanced
-    state: present
-
-- name: install bind-utils
-  yum: 
-    name: bind-utils
-    state: present
-
-- name: install bash-completion
-  yum: 
-    name: bash-completion
-    state: present
-
-- name: make SELinux enforcing
-  selinux:
-    policy: targeted
-    state: enforcing
-
-- name: add user 'piet' with admin rights
-  user:
-    name: piet
-    comment: Piet Jacobs
-    group: "wheel"
 
 - name: "set motd banner"
   template:
     src: "motd.j2"
     dest: "/etc/motd"
 
-- name: Set authorized key taken from file
-  authorized_key:
-    user: piet
-    state: present
-    key: "{{ lookup('file', '/vagrant/ansible/files/id_rsa.pub') }}"
+# - name: Set authorized key taken from file
+#   authorized_key:
+#     user: piet
+#     state: present
+#     key: "{{ lookup('file', '/vagrant/ansible/files/id_rsa.pub') }}"
