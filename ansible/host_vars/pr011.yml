@@ -1,8 +1,5 @@
 ---
 #rh-base vars
-rhbase_firewall_allow_services: 
-  - samba
-
 rhbase_user_groups:
   - management
   - technical
@@ -99,6 +96,7 @@ rhbase_users:
 #samba vars
 samba_netbios_name: FILES
 samba_workgroup: AVALON
+samba_map_to_guest: bad user
 samba_shares:
   - name: management
     group: management
@@ -160,3 +158,23 @@ samba_users:
     password: stefaanv
   - name: piet
     password: admin123
+
+#vsftp vars
+rhbase_firewall_allow_services: 
+  - ftp
+  - samba
+# rhbase_firewall_allow_ports:
+#   - 20/tcp
+vsftpd_local_enable: true
+vsftpd_options:
+  - key: delete_failed_uploads
+    value: 'YES'
+  - key: ftpd_banner
+    value: 'Welcome to the FTP service'
+
+# vsftpd_extra_permissions:
+#   - folder: "/srv/shares/public"
+#     entity: "public"
+#     etype: "group"
+#     permissions: "r-x"
+vsftpd_anonymous_enable: false
