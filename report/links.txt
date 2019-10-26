@@ -1,0 +1,16 @@
+https://medium.com/@shredder/using-ansible-tags-with-vagrant-provision-a4856966a987
+
+https://www.linuxquestions.org/questions/linux-networking-3/samba-tree-connect-failed-nt_status_access_denied-4175597197/
+
+https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7
+
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html
+
+https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
+
+
+
+chmod 777 voor public folder
+
+https://forums.unraid.net/topic/8106-accessing-a-user-share-via-ftpsmb/
+anonymous_enable=NO

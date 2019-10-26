@@ -110,7 +110,7 @@ def provision_ansible(node, host, groups)
         "ansible/#{host['playbook']}" :
         "ansible/site.yml"
     ansible.become = true
-    ansible.tags="samba"
+    #ansible.tags="samba"
   end
 end
 

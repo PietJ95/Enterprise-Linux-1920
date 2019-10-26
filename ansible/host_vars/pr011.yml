@@ -179,17 +179,83 @@ samba_users:
 rhbase_firewall_allow_services: 
   - ftp
   - samba
-vsftpd_local_enable: true
 vsftpd_options:
   - key: delete_failed_uploads
     value: 'YES'
   - key: ftpd_banner
     value: 'Welcome to the FTP service'
 
+#extra permissions on each share
+#public share
 vsftpd_extra_permissions:
   - folder: "/srv/shares/public"
     entity: "public"
     etype: "group"
     permissions: "rwx"
+
+#management share
+  - folder: "/srv/shares/management"
+    entity: "sales"
+    etype: "group"
+    permissions: "---"
+
+  - folder: "/srv/shares/management"
+    entity: "it"
+    etype: "group"
+    permissions: "---"
+
+  - folder: "/srv/shares/management"
+    entity: "management"
+    etype: "group"
+    permissions: "rwx"
+
+  - folder: "/srv/shares/management"
+    entity: "technical"
+    etype: "group"
+    permissions: "---"
+
+#sales share
+  - folder: "/srv/shares/sales"
+    entity: "sales"
+    etype: "group"
+    permissions: "rwx"
+
+  - folder: "/srv/shares/sales"
+    entity: "it"
+    etype: "group"
+    permissions: "---"
+
+  - folder: "/srv/shares/sales"
+    entity: "management"
+    etype: "group"
+    permissions: "r-x"
+
+  - folder: "/srv/shares/sales"
+    entity: "technical"
+    etype: "group"
+    permissions: "---"
+
+#it share
+  - folder: "/srv/shares/it"
+    entity: "it"
+    etype: "group"
+    permissions: "rwx"
+
+  - folder: "/srv/shares/it"
+    entity: "management"
+    etype: "group"
+    permissions: "r-x"
+
+  - folder: "/srv/shares/it"
+    entity: "sales"
+    etype: "group"
+    permissions: "---"
+
+  - folder: "/srv/shares/it"
+    entity: "technical"
+    etype: "group"
+    permissions: "---"
+
 vsftpd_anonymous_enable: false
+vsftpd_local_enable: true
 vsftpd_local_root: /srv/shares/
