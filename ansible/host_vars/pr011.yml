@@ -10,13 +10,17 @@ rhbase_user_groups:
 rhbase_users:
   - name: piet
     comment: 'Admin Piet'
+    password: $6$Hy0j70SCpGr82jON$vQO74Zkfr.aGRkFI.k/ibw64ZQEr9hOTsIvzWJmv2PPd863eTRqPT7MRJ8ewptbeUZh2tzB38IzVcUmGGLyj.0
+    #admin123
     groups: 
       - public
       - it
+      - wheel
 
   - name: stevenh
     comment: 'Steven H'
     shell: /sbin/nologin
+    password: $6$uyYyGPiJZrZhgG4p$Q64.qo0HLZ.9G1cS4FmLby1uVXmKONdYvsQxHhWavC9NnYyirqr/myBrSkNVA0G5lJ.FRgBFKEAhEJPZ2/M/S1
     groups:
       - public
       - management
@@ -24,70 +28,82 @@ rhbase_users:
   - name: stevenv
     comment: 'Steven VD'
     shell: /sbin/nologin
+    password: $6$NFA./x5vrrg0Dyo9$QOhjkkQNZEqCI5Nln03HZ9/P26l.8te/gr771nwrgFx7Qp2ZyyItnkBJUt1ftyjSDZU9Q4zJ6uHbReDP/YQqx/
     groups:
       - public
       - technical
 
   - name: leend
     comment: 'Leen'
+    password: $6$HX6gbQMBTopm2Lot$.DTUrWfYXBmTK2UYiYvzl6bPG0CIsHrQ7nJFQm24wYzxUqgoe7eH3rwDbmstQ6x1wpYz5Ow/JDNs2WcM/zm.O/
     shell: /sbin/nologin
     groups:
       - public
       - technical
 
   - name: svena
+    password: $6$FefnT9CUyTuBFCe1$S3jvOCJDBWjQUH5moyTsuDOIzZcHK3Pkuo/h/ybUTAuXdPwoLrmTvi/ofkaDaNfA1MwX65H2xhwslxfnstwq50
     shell: /sbin/nologin
     groups:
       - public
       - sales
 
   - name: nehirb
+    password: $6$Z8ohxOdUlpo1tF5B$zzn7Zhwi4Xf2G.Sqo5oF6AQKx9436amqG7iooU71ZNGTJdDsvkOovBI4x7fsKdC8Czw2g1G.LCslrFX93s63P1
     groups:
       - public
       - it
 
   - name: alexanderd
     shell: /sbin/nologin
+    password: $6$QKr1kabgsg9.4rtE$I5C1pd02mG7DhrgFP9.U5Ovw1PrfBoHZ/OdwSMeXvQ0UPRxN2AP3yHL2hRouhYzMDA2.rNSltQssf88q8GtBr1
     groups:
       - public
       - technical
 
   - name: krisv
     shell: /sbin/nologin
+    password: $6$TKXZ0aBUE30jpEXH$cTjZ0LWupBAHGexCwag390Ad.LQsOOKpsdiylS2E0/CJ2Vwvm3Mbn2Uu/ut/F4acAzdr9aZlSGYIJDmoorcV3.
     groups:
       - public
       - management
 
   - name: benoitp
     shell: /sbin/nologin
+    password: $6$eJg76fP0UqoblZ0N$WexFT3N7.OIem8Gjdn7fGD17Tbg2VxW6EHe0Q4LxPphItWmhcAD.arh1CiurS0GyFqztodN.2Wqe0p3eo4Lkr0
     groups:
       - sales
       - public
 
   - name: anc
     shell: /sbin/nologin
+    password: $6$vPpUrcTZ.eODRziY$hUCDHpAdFv003gtvgEyJcT9W4mnAylIpp4qxBCZJCL1aJ0QnP0AtsT9b6THosuvuxUwotzbBoG7BPfHDWPt2J1
     groups:
       - public
       - technical
 
   - name: elenaa
     shell: /sbin/nologin
+    password: $6$V/0yy3KdtSIjCSDJ$3.MtN62axn5jdoFsabIJdjv21VnZjcl5UZIGZFmSAPTQhG/1mInfv0VZp0ByKrR4C4kIyyrvlh17GbjLfqZxb1
     groups:
       - public
       - management
 
   - name: evyt
     shell: /sbin/nologin
+    password: $6$Luo7y7dlRwU059qP$EsAIQr7CRT96zPTHD5BqfBNeRRcTx7NxBhyeafm3mMfsYMeTAyvtmhQyzc8haKupbVDJH1ll2myCx1FeNKtw0.
     groups:
       - public
       - technical
 
   - name: christophev
+    password: $6$Bj6mvC.Wxjd3mA1u$QlY.e4njU0k2MFSzeHw.tqq.2GE/YeUuzdUHrfw9xv5Ci5XaeuVBWhBdGS6zpt0NMbaxnmrRLeOI1wJ3.Hgnx0
     groups:
       - public
       - it
 
   - name: stefaanv
+    password: $6$FZz8VOsZD/y4sqca$F.L5zfMjiA4AzmJ555S7VJqzCAK1M1eiTfU/k.sUsr5Fdhm91bBqvRoIy3iAQYzObLkKwToqw3mSCrGtzJjJd0
     shell: /sbin/nologin
     groups:
       - public
@@ -163,8 +179,6 @@ samba_users:
 rhbase_firewall_allow_services: 
   - ftp
   - samba
-# rhbase_firewall_allow_ports:
-#   - 20/tcp
 vsftpd_local_enable: true
 vsftpd_options:
   - key: delete_failed_uploads
@@ -172,9 +186,10 @@ vsftpd_options:
   - key: ftpd_banner
     value: 'Welcome to the FTP service'
 
-# vsftpd_extra_permissions:
-#   - folder: "/srv/shares/public"
-#     entity: "public"
-#     etype: "group"
-#     permissions: "r-x"
+vsftpd_extra_permissions:
+  - folder: "/srv/shares/public"
+    entity: "public"
+    etype: "group"
+    permissions: "rwx"
 vsftpd_anonymous_enable: false
+vsftpd_local_root: /srv/shares/
