@@ -1,0 +1,9 @@
+#pr002.yml
+---
+#bind vars
+
+bind_allow_query: ['any']
+bind_listen_ipv4: ['any']
+bind_zone_master_server_ip: 172.16.192.1
+bind_zone_domains:
+  - name: avalon.lan

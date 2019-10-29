@@ -21,6 +21,12 @@
   roles:
     - bertvv.bind
 
+- hosts: pr002
+  become: true
+  remote_user: root
+  roles:
+    - bertvv.bind
+
 - hosts: pr011
   become: true 
   remote_user: root
