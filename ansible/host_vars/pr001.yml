@@ -4,25 +4,27 @@ bind_allow_query:
 bind_listen_ipv4:
   - any
 bind_zone_master_server_ip: 172.16.192.1
-bind_forwarders:
-      - '8.8.8.8'
-      - '8.8.4.4'
+# bind_forwarders:
+#       - '8.8.8.8'
+#       - '8.8.4.4'
 bind_zone_name_servers:
   - pr001
   - pr002
-bind_acls:
-  - name: acl1
-    match_list:
-      - 172.16.192.0/16
-  - name: acl2
-    match_list:
-      - 172.16.192.0/16
-      - 192.0.2.0/24
+# bind_acls:
+#   - name: acl1
+#     match_list:
+#       - 172.16.192.0/16
+#   - name: acl2
+#     match_list:
+#       - 172.16.192.0/16
+#       - 192.0.2.0/24
 bind_zone_domains:
   - name: avalon.lan
+    also_notify: 
+      - '172.16.192.2'
     networks: 
-      - '172.16.192'
-      - '192'
+      - '172.16'
+      - '192.0.2'
     name_servers:
       - pr001
       - pr002

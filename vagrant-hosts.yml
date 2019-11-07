@@ -40,8 +40,3 @@
 - name: pr011
   ip: 172.16.192.11
   netmask: 255.255.0.0
-
-- name: testnfs
-  ip: 172.16.1.50
-  netmask: 255.255.255.0
-  intnet: true

@@ -126,4 +126,3 @@ Problems I encountered and their solution:
 - https://unix.stackexchange.com/questions/109311/new-local-user-cant-login-to-vsftpd
 - https://bbs.archlinux.org/viewtopic.php?id=72117
 - https://linuxconfig.org/how-to-manage-acls-on-linux
-- https://docs.ansible.com/ansible/latest/modules/acl_module.html
