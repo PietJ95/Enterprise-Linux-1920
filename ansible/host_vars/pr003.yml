@@ -1,0 +1,67 @@
+#pr003 vars
+---
+rhbase_firewall_allow_services:
+  - dhcp
+
+#DHCP config
+dhcp_global_domain_name_servers:
+  - 172.16.192.1
+  - 172.16.192.2
+
+#this will apply only to the known hosts, all other ranges override this
+dhcp_global_default_lease_time: 43200 #12u
+
+dhcp_global_domain_name: avalon.lan
+
+dhcp_subnets:
+  #hosts
+  - ip: 172.16.0.0
+    netmask: 255.255.0.0
+    domain_name_servers: 
+      - 172.16.192.1
+      - 172.16.192.2
+    range_begin: 172.16.0.2
+    range_end: 172.16.127.254
+    routers: 172.16.127.255
+    default_lease_time: 14400 #4u
+
+   #workstations
+  - ip: 172.16.128.0
+    netmask: 255.255.0.0
+    domain_name_servers: 
+      - 172.16.192.1
+      - 172.16.192.2
+    range_begin: 172.16.128.1
+    range_end: 172.16.191.254
+    routers: 172.16.191.255
+    default_lease_time: 14400 #4u
+
+  #servers, gateway
+  - ip: 172.16.192.0
+    netmask: 255.255.255.0
+    domain:name_servers:
+      - 172.16.192.1
+      - 172.16.192.2
+    range_begin: 172.16.192.1
+    range_end: 172.16.255.254
+    routers: 172.16.255.255
+    default_lease_time: 14400 #4u
+
+
+
+dhcp_hosts:
+  - name: pu001
+    mac: 'A4:C4:B2:2E:A0:FF'
+    ip: 192.0.2.10
+
+  - name: pr001
+    mac: 'F1:CB:25:10:5D:AD'
+    ip: 172.16.192.1
+
+  - name: pr002
+    mac: '1B:B5:C2:42:F7:B0'
+    ip: 172.16.192.2
+      
+  - name: pr011
+    mac: 'C1:80:FF:D5:5A:EE'
+    ip: 172.16.192.11

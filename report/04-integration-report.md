@@ -49,7 +49,11 @@ But this is just the ip of the pool, every server in this pool needs to be added
     set system ntp server 3.be.pool.ntp.org
 ---
 ## DHCP
+- Assign custom mac addresses to known hosts in the vagrant-hosts.yml file
+- Make DHCP assign these mac addresses their specific IP
 
+Subnet declaration:  
+Having some issues with the subnet masks, giving me overlapping errors. Need to look further into this.
 
 ## Test report
 

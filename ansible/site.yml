@@ -35,3 +35,9 @@
     - bertvv.samba
     - bertvv.vsftpd
 
+- hosts: pr003
+  become: true
+  remote_user: root
+  roles:
+    - bertvv.rh-base
+    - bertvv.dhcp
