@@ -1,3 +1,10 @@
+#pr002.yml
+---
+
+#firewall
+rhbase_firewall_allow_services:
+  - dns
+
 # bind vars
 bind_allow_query: 
   - any

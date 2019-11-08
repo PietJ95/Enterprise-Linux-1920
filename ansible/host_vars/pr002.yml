@@ -1,7 +1,10 @@
 #pr002.yml
 ---
-#bind vars
+#firewall
+rhbase_firewall_allow_services:
+  - dns
 
+#bind vars
 bind_allow_query: ['any']
 bind_listen_ipv4: ['any']
 bind_zone_master_server_ip: 172.16.192.1
