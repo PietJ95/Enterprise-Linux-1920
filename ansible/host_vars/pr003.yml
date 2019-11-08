@@ -51,17 +51,17 @@ dhcp_subnets:
 
 dhcp_hosts:
   - name: pu001
-    mac: 'A4:C4:B2:2E:A0:FF'
+    mac: '08:00:27:66:5D:04'
     ip: 192.0.2.10
 
   - name: pr001
-    mac: 'F1:CB:25:10:5D:AD'
+    mac: '08:00:27:66:5D:01'
     ip: 172.16.192.1
 
   - name: pr002
-    mac: '1B:B5:C2:42:F7:B0'
+    mac: '08:00:27:66:5D:02'
     ip: 172.16.192.2
       
   - name: pr011
-    mac: 'C1:80:FF:D5:5A:EE'
+    mac: '08:00:27:66:5D:03'
     ip: 172.16.192.11
