@@ -16,7 +16,7 @@ dhcp_global_domain_name: avalon.lan
 dhcp_subnets:
   #hosts
   - ip: 172.16.0.0
-    netmask: 255.255.0.0
+    netmask: 255.255.128.0
     domain_name_servers: 
       - 172.16.192.1
       - 172.16.192.2
