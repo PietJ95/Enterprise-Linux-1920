@@ -22,7 +22,7 @@ dhcp_subnets:
       - 172.16.192.2
     range_begin: 172.16.0.2
     range_end: 172.16.127.254
-    routers: 172.16.127.255
+    routers: 172.16.255.254
     default_lease_time: 14400 #4u
 
    #workstations
@@ -33,7 +33,7 @@ dhcp_subnets:
       - 172.16.192.2
     range_begin: 172.16.128.1
     range_end: 172.16.191.254
-    #routers: 172.16.191.255
+    routers: 172.16.255.254
     default_lease_time: 14400 #4u
 
   #servers, gateway
@@ -44,7 +44,7 @@ dhcp_subnets:
       - 172.16.192.2
     range_begin: 172.16.192.1
     range_end: 172.16.255.254
-    routers: 172.16.255.255
+    routers: 172.16.255.254
     default_lease_time: 14400 #4u
 
 
