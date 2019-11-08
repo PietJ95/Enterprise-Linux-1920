@@ -15,13 +15,7 @@
     - bertvv.httpd
     - bertvv.wordpress
 
-- hosts: pr001
-  become: true
-  remote_user: root
-  roles:
-    - bertvv.bind
-
-- hosts: pr002
+- hosts: pr001,pr002
   become: true
   remote_user: root
   roles:

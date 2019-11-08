@@ -29,25 +29,25 @@
 #Webserver
 - name: pu001
   ip: 192.0.2.10
-  mac: 'A4:C4:B2:2E:A0:FF'
+  mac: '08:00:27:66:5D:04'
 
 #Primary DNS
 - name: pr001
   ip: 172.16.192.1
   netmask: 255.255.0.0
-  mac: 'F1:CB:25:10:5D:AD'
+  mac: '08:00:27:66:5D:01'
 
 #Secondary DNS
 - name: pr002
   ip: 172.16.192.2
   netmask: 255.255.0.0
-  mac: '1B:B5:C2:42:F7:B0'
+  mac: '08:00:27:66:5D:02'
 
 #Fileserver
 - name: pr011
   ip: 172.16.192.11
   netmask: 255.255.0.0
-  mac: 'C1:80:FF:D5:5A:EE'
+  mac: '08:00:27:66:5D:03'
 
 #DHCP
 - name: pr003

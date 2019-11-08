@@ -27,18 +27,18 @@ dhcp_subnets:
 
    #workstations
   - ip: 172.16.128.0
-    netmask: 255.255.0.0
+    netmask: 255.255.192.0
     domain_name_servers: 
       - 172.16.192.1
       - 172.16.192.2
     range_begin: 172.16.128.1
     range_end: 172.16.191.254
-    routers: 172.16.191.255
+    #routers: 172.16.191.255
     default_lease_time: 14400 #4u
 
   #servers, gateway
   - ip: 172.16.192.0
-    netmask: 255.255.255.0
+    netmask: 255.255.192.0
     domain:name_servers:
       - 172.16.192.1
       - 172.16.192.2

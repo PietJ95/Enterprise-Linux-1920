@@ -8,14 +8,14 @@ rhbase_user_groups:
   - public
 
 rhbase_users:
-  - name: piet
-    comment: 'Admin Piet'
-    password: $6$Hy0j70SCpGr82jON$vQO74Zkfr.aGRkFI.k/ibw64ZQEr9hOTsIvzWJmv2PPd863eTRqPT7MRJ8ewptbeUZh2tzB38IzVcUmGGLyj.0
-    #admin123
-    groups: 
-      - public
-      - it
-      - wheel
+  # - name: piet
+  #   comment: 'Admin Piet'
+  #   password: $6$Hy0j70SCpGr82jON$vQO74Zkfr.aGRkFI.k/ibw64ZQEr9hOTsIvzWJmv2PPd863eTRqPT7MRJ8ewptbeUZh2tzB38IzVcUmGGLyj.0
+  #   #admin123
+  #   groups: 
+  #     - public
+  #     - it
+  #     - wheel
 
   - name: stevenh
     comment: 'Steven H'
