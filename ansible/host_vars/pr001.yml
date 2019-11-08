@@ -77,9 +77,6 @@ bind_zone_domains:
       ip: 172.16.192.11
       aliases:
         - files
-
-    #reverse lookups
-    #...
     
     mail_servers:
       - name: pu002

@@ -40,6 +40,14 @@ More tests are passing now so the zone file is transferring
 
 
 The reverse lookups are failing...
+
+Checked the directory on pr002 to see which zones were being loaded. So the reverse lookup zones are defined by
+
+    - networks:
+      - '172.16'
+      - '192.0.2'
+These weren't defined in the slave configuration, so basically just needed to add the same thing under the 'avalon.lan' domain to make these reverse lookup zones replicate aswell.
+
 ## Test report
 
 
