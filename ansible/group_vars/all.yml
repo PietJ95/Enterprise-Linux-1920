@@ -15,6 +15,9 @@ rhbase_install_packages:
   - bind-utils
   - bash-completion
 
+rhbase_repositories:
+  - epel-release
+
 rhbase_users:
   - name: piet
     comment: 'Piet Jacobs'
