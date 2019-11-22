@@ -42,8 +42,8 @@ dhcp_subnets:
     domain:name_servers:
       - 172.16.192.1
       - 172.16.192.2
-    range_begin: 172.16.192.1
-    range_end: 172.16.255.254
+    # range_begin: 172.16.192.1
+    # range_end: 172.16.255.254
     routers: 172.16.255.254
     default_lease_time: 14400 #4u
 

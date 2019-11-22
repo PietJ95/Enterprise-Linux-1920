@@ -20,7 +20,7 @@ rhbase_repositories:
 
 rhbase_users:
   - name: piet
-    comment: 'Piet Jacobs'
+    comment: 'Admin Piet'
     groups: 
       - wheel
       - it
