@@ -6,6 +6,7 @@
   roles:
     - bertvv.rh-base
     - basic-config
+    - ansible-fail2ban
 
 - hosts: pu001
   become: true

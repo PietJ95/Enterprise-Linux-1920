@@ -30,3 +30,11 @@ rhbase_users:
 rhbase_ssh_user: piet
 rhbase_ssh_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUxqJHoSYTNQmS+aGJ3+/+9PNkYuwouptt367UJZdM42OF5t4fFZkeGl/KLrrX1DDGue5T1Rcoheb3fQ5l/F2NuS4lWD6bbpV8IOXxD8FPGvd4aYxUZjEP6r8AY+EqMZ2I+J8XW9rF6DvAVzTctTIAM4QgBl4CUm4PBVRD8UqXYl8qKwuT6Hywt+5xH+IENvvz+hy1NTtJqBRJxsesoyHCRHwxEh6+BKrDnbzeTyh3qbFnSSFuQWtucbsC0GmLe6wXT4PxJbAiWaZWlfWmHmIJTO/T7r/4TSOkuMJxCHVAvcmUs6y+u/bi33qdyF5/GmNp6OeGgDnwDtyPaHU/DI+N pietj@DESKTOP-PIET'
 
+#fail2ban vars
+fail2ban_sender: fail2ban@avalon.lan
+fail2ban_destemail: piet.jacobs@student.hogent.be
+fail2ban_services:
+  - name: sshd
+    port: 22
+    maxretry: 5
+    bantime: 300
