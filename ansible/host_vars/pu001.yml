@@ -6,10 +6,15 @@ rhbase_firewall_allow_services:
 
 #mariadb vars
 mariadb_databases:
-  - name: wordpress
+  - name: wp_db
 mariadb_users: 
   - name: piet
     password: testPass
-    priv: '*.*:ALL'
+    priv: 'wp_db.*:ALL'
  
 mariadb_root_password: 'Ro0tP4sS'
+
+#wordpress vars
+wordpress_database: wp_db
+wordpress_user: piet
+wordpress_password: testPass
