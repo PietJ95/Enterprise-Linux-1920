@@ -31,9 +31,13 @@ set interfaces ethernet eth2 description internal
 #
 # Network Address Translation
 #
-set nat source rule 100 outbound-interface 'eth0'
-set nat source rule 100 source address '172.16.255.254/16'
+set nat source rule 100 outbound-interface 'eth1'
+set nat source rule 100 source address '172.16.0.0/16'
 set nat source rule 100 translation address 'masquerade'
+
+set nat source rule 200 outbound-interface 'eth0'
+set nat source rule 200 source address '172.16.0.0/16'
+set nat source rule 200 translation address 'masquerade'
 
 #
 # Time
@@ -56,10 +60,9 @@ set system ntp server 3.be.pool.ntp.org
 #
 
 #set service dns forwarding system
-set service dns forwarding domain avalon.lan server 172.16.192.1
-#HoGent DNS servers
-set service dns forwarding name-server 193.190.173.1
-set service dns forwarding name-server 193.190.173.2
+set service dns forwarding domain avalon.lan server 192.0.2.10
+#DNS forwarders (NAT gateway)
+set service dns forwarding name-server 10.0.2.3
 set service dns forwarding listen-on 'eth1'
 set service dns forwarding listen-on 'eth2'
 
