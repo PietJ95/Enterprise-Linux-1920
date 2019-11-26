@@ -18,3 +18,18 @@ mariadb_root_password: 'Ro0tP4sS'
 wordpress_database: wp_db
 wordpress_user: piet
 wordpress_password: testPass
+
+#fail2ban plugin
+wordpress_plugins:
+  - name: wp-fail2ban
+    version: 4.2.7.1
+
+#fail2ban regex
+# fail2ban_filterd_path: /templates
+# fail2ban_services:
+#   - name: wordpress
+#     port: http, https
+#     filter: wordpress
+#     logpath: /var/log/wordpress/access.log
+#     maxretry: 5
+#     findtime: 120
