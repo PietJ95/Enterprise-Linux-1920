@@ -60,7 +60,7 @@ set system ntp server 3.be.pool.ntp.org
 #
 
 #set service dns forwarding system
-set service dns forwarding domain avalon.lan server 192.0.2.10
+set service dns forwarding domain avalon.lan server 172.16.192.1
 #DNS forwarders (NAT gateway)
 set service dns forwarding name-server 10.0.2.3
 set service dns forwarding listen-on 'eth1'

@@ -11,3 +11,9 @@
 #
 # Leave the file empty if you do not want to define groups.
 ---
+internal:
+  - pr001
+  - pr002
+  - pr003
+dmz:
+  - pu001

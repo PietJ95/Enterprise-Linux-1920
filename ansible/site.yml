@@ -33,3 +33,25 @@
   remote_user: root
   roles:
     - bertvv.dhcp
+
+- hosts: internal
+  become: true
+  remote_user: root
+  tasks:
+    # - name: Remove default gateway
+    #   shell: ip route flush 0/0
+    - name: Set default gateway
+      shell: route add default gw 172.16.255.254
+    - name: Set dns servers
+      shell: printf "nameserver 172.16.255.254" > /etc/resolv.conf
+
+
+- hosts: dmz
+  become: true
+  remote_user: root
+  tasks:
+    - name: Set default gateway
+      shell: route add default gw 192.0.2.254
+    - name: Set dns servers
+      shell: printf "nameserver 192.0.2.254" > /etc/resolv.conf
+

@@ -55,6 +55,23 @@ But this is just the ip of the pool, every server in this pool needs to be added
 Subnet declaration:  
 Having some issues with the subnet masks, giving me overlapping errors. Need to look further into this.
 
+
+## VM integration
+All VM's need to have the correct default gateway set and the DNS servers in their network configuration  
+Gateways:
+- DMZ -> 192.0.2.254
+- Internal -> 172.16.255.254
+
+DNS: 172.16.192.1 & 172.16.192.2
+
+Can't reach the HoGent DNS servers...
+After troubleshooting with Van Maele A. I received feedback that my client DNS config should not be the pr001 DNS server but the router, it acts as a forwarder to all requests.
+
+**So fix:**
+in /etc/resolv.conf
+- DMZ: 192.0.2.254
+- Internal: 172.16.255.254
+
 ## Test report
 
 Problems I encountered and their solution:  
