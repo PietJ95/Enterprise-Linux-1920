@@ -6,11 +6,23 @@
 Setting up basic automated installation for all upcoming servers
 
 ## Test plan
+### Verify tests
+**`pr001 (Master)`**
+- Open a terminal in the root directory of this project
+- Bring up the machine with `vagrant up pr001`
+- Connect to the machine with `vagrant ssh pr001`
+- Run the following command and verify that all tests pass
 
-Issues getting the slave to load in the remote zone file...
+        sudo /vagrant/test/runbats.sh
 
+**`pr002 (Slave)`**
+- Open a terminal in the root directory of this project
+- Bring up the machine with `vagrant up pr002`
+- Connect to the machine with `vagrant ssh pr002`
+- Run the following command and verify that all tests pass
 
-
+        sudo /vagrant/test/runbats.sh
+        
 ## Procedure/Documentation
 ### Master
 Basic DNS config is pretty straight forward.

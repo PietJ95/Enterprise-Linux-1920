@@ -6,9 +6,13 @@
 Setting up basic automated installation for all upcoming servers
 
 ## Test plan
+- Open a terminal in the root directory of this project
+- Bring up the machine with `vagrant up pr011`
+- Connect to the machine with `vagrant ssh pr011`
+- Run the following command and verify that all tests pass
 
-
-
+        sudo /vagrant/test/runbats.sh
+        
 ## Procedure/Documentation
 
 Issue with vsftp remote connection using curl: 
@@ -85,6 +89,9 @@ Making use of the "getfacl" command to troubleshoot the access control
     setfacl -m g:management:rwx /srv/shares/management/
 
 This makes it work, however I'm finding difficulty using the vsftpd role for this
+
+---
+Continuation...
 
     vsftpd_extra_permissions:
       - folder: "/srv/shares/management"
