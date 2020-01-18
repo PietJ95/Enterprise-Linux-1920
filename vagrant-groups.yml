@@ -15,5 +15,6 @@ internal:
   - pr001
   - pr002
   - pr003
+  - pr011
 dmz:
   - pu001

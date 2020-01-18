@@ -135,7 +135,7 @@ Problems I encountered and their solution:
     - Solution:   
     
 ## Resources
-BertVV VyOS cheat sheet
-- https://github.com/bertvv/cheat-sheets/blob/master/docs/VyOS.md
+- BertVV VyOS cheat sheet
+    - https://github.com/bertvv/cheat-sheets/blob/master/docs/VyOS.md
 - https://support.vyos.io/en
 - https://wiki.vyos.net/wiki/System_management#Configuring_date.2C_time_.26_NTP

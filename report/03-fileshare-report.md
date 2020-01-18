@@ -77,7 +77,7 @@ More tests passing, not all of them (no_read_access still failing)
 
 ---
 ### ACL management
-Making use of the "getfacl" command to troubleshoot the access control
+Making use of the `getfacl` command to troubleshoot the access control
 
 **Trying it manually with**
 
@@ -114,7 +114,52 @@ Turns out this is the way to go, however after doing some testing I realised tha
 
 ## Test report
 
-All tests passing. 
+    Running test /vagrant/test/pr011/samba.bats
+    ✓ The ’nmblookup’ command should be installed
+    ✓ The ’smbclient’ command should be installed
+    ✓ The Samba service should be running
+    ✓ The Samba service should be enabled at boot
+    ✓ The WinBind service should be running
+    ✓ The WinBind service should be enabled at boot
+    ✓ The SELinux status should be ‘enforcing’
+    ✓ Samba traffic should pass through the firewall
+    ✓ Check existence of users
+    ✓ Checks shell access of users
+    ✓ Samba configuration should be syntactically correct
+    ✓ NetBIOS name resolution should work
+    ✓ read access for share ‘public’
+    ✓ write access for share ‘public’
+    ✓ read access for share ‘management’
+    ✓ write access for share ‘management’
+    ✓ read access for share ‘technical’
+    ✓ write access for share ‘technical’
+    ✓ read access for share ‘sales’
+    ✓ write access for share ‘sales’
+    ✓ read access for share ‘it’
+    ✓ write access for share ‘it’
+
+    22 tests, 0 failures
+    Running test /vagrant/test/pr011/vsftp.bats
+    ✓ VSFTPD service should be running
+    ✓ VSFTPD service should be enabled at boot
+    ✓ The ’curl’ command should be installed
+    ✓ The SELinux status should be ‘enforcing’
+    ✓ FTP traffic should pass through the firewall
+    ✓ VSFTPD configuration should be syntactically correct
+    ✓ Anonymous user should not be able to see shares
+    ✓ read access for share ‘public’
+    ✓ write access for share ‘public’
+    ✓ read access for share ‘management’
+    ✓ write access for share ‘management’
+    ✓ read access for share ‘technical’
+    ✓ write access for share ‘technical’
+    ✓ read access for share ‘sales’
+    ✓ write access for share ‘sales’
+    ✓ read access for share ‘it’
+    ✓ write access for share ‘it’
+
+    17 tests, 0 failures
+
     
 ## Resources
 

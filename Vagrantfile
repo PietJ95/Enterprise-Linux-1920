@@ -61,6 +61,13 @@ def network_options(host)
     options[:netmask] = host['netmask'] ||= '255.255.255.0'
   else
     options[:type] = 'dhcp'
+=begin    
+    if host['name'] = 'pu001'
+      options[:bridge] = 'VirtualBox Host-Only Ethernet Adapter #2'
+    else
+      options[:bridge] = 'VirtualBox Host-Only Ethernet Adapter #3'
+    end
+=end
   end
 
   options[:mac] = host['mac'].gsub(/[-:]/, '') if host.key?('mac')
