@@ -70,14 +70,44 @@ This allows the http & https service to pass through the firewall
 
 ## Test report
 
+- Verifying tests
 
-Problems I encountered and their solution:  
-- ...
-    - Solution:  
-    
+        Running test /vagrant/test/common.bats
+        ✓ SELinux should be set to 'Enforcing'
+        ✓ Firewall should be enabled and running
+        ✓ EPEL repository should be available
+        ✓ Bash-completion should have been installed
+        ✓ bind-utils should have been installed
+        ✓ Git should have been installed
+        ✓ Nano should have been installed
+        ✓ Tree should have been installed
+        ✓ Vim-enhanced should have been installed
+        ✓ Wget should have been installed
+        ✓ Admin user piet should exist
+        ✓ An SSH key should have been installed for piet
+        ✓ Custom /etc/motd should have been installed
 
-- ...
-    - Solution:   
+        13 tests, 0 failures
+        Running test /vagrant/test/pu001/lamp.bats
+        ✓ The necessary packages should be installed
+        ✓ The Apache service should be running
+        ✓ The Apache service should be started at boot
+        ✓ The MariaDB service should be running
+        ✓ The MariaDB service should be started at boot
+        ✓ The SELinux status should be ‘enforcing’
+        ✓ Web traffic should pass through the firewall
+        ✓ Mariadb should have a database for Wordpress
+        ✓ The MariaDB user should have write
+        ✓ The website should be accessible through HTTP
+        ✓ The website should be accessible through HTTPS
+        ✓ The certificate should not be the default one
+        ✓ The Wordpress install page should be visible under http://192.0.2.10/wordpress/
+        ✓ MariaDB should not have a test database
+        ✓ MariaDB should not have anonymous users
+
+        15 tests, 0 failures
+
+- Site is up and asks me to allow the certificate.
     
 ## Resources
 

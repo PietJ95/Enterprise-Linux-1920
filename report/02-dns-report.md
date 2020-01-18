@@ -20,9 +20,22 @@ Setting up basic automated installation for all upcoming servers
 - Bring up the machine with `vagrant up pr002`
 - Connect to the machine with `vagrant ssh pr002`
 - Run the following command and verify that all tests pass
-
+    
         sudo /vagrant/test/runbats.sh
         
+### host connectivity
+Use `nslookup` to verify the domain:
+
+    #pr001
+    nslookup avalon.lan 172.16.192.1   
+
+    #pr002
+    nslookup avalon.lan 172.16.192.2 
+
+**This should return the server pr001/pr002.avalon.lan with the IP**
+
+
+
 ## Procedure/Documentation
 ### Master
 Basic DNS config is pretty straight forward.
@@ -62,14 +75,81 @@ These weren't defined in the slave configuration, so basically just needed to ad
 
 ## Test report
 
+- pr001: verifying tests
 
-Problems I encountered and their solution:  
-- ...
-    - Solution:  
-    
+        Running test /vagrant/test/common.bats
+        ✓ SELinux should be set to 'Enforcing'
+        ✓ Firewall should be enabled and running
+        ✓ EPEL repository should be available
+        ✓ Bash-completion should have been installed
+        ✓ bind-utils should have been installed
+        ✓ Git should have been installed
+        ✓ Nano should have been installed
+        ✓ Tree should have been installed
+        ✓ Vim-enhanced should have been installed
+        ✓ Wget should have been installed
+        ✓ Admin user piet should exist
+        ✓ An SSH key should have been installed for piet
+        ✓ Custom /etc/motd should have been installed
 
-- ...
-    - Solution:   
+        13 tests, 0 failures
+        Running test /vagrant/test/pr001/masterdns.bats
+        ✓ The dig command should be installed
+        ✓ The main config file should be syntactically correct
+        ✓ The forward zone file should be syntactically correct
+        ✓ The reverse zone files should be syntactically correct
+        ✓ The service should be running
+        ✓ Forward lookups public servers
+        ✓ Forward lookups private servers
+        ✓ Reverse lookups public servers
+        ✓ Reverse lookups private servers
+        ✓ Alias lookups public servers
+        ✓ Alias lookups private servers
+        ✓ NS record lookup
+        ✓ Mail server lookup
+
+        13 tests, 0 failures
+
+- pr002: verifying tests:
+
+        Running test /vagrant/test/common.bats
+        ✓ SELinux should be set to 'Enforcing'
+        ✓ Firewall should be enabled and running
+        ✓ EPEL repository should be available
+        ✓ Bash-completion should have been installed
+        ✓ bind-utils should have been installed
+        ✓ Git should have been installed
+        ✓ Nano should have been installed
+        ✓ Tree should have been installed
+        ✓ Vim-enhanced should have been installed
+        ✓ Wget should have been installed
+        ✓ Admin user piet should exist
+        ✓ An SSH key should have been installed for piet
+        ✓ Custom /etc/motd should have been installed
+
+        13 tests, 0 failures
+        Running test /vagrant/test/pr002/slavedns.bats
+        ✓ The dig command should be installed
+        ✓ The main config file should be syntactically correct
+        ✓ The server should be set up as a slave
+        ✓ The server should forward requests to the master server
+        ✓ There should not be a forward zone file
+        ✓ The service should be running
+        ✓ Forward lookups public servers
+        ✓ Forward lookups private servers
+        ✓ Reverse lookups public servers
+        ✓ Reverse lookups private servers
+        ✓ Alias lookups public servers
+        ✓ Alias lookups private servers
+        ✓ NS record lookup
+        ✓ Mail server lookup
+
+        14 tests, 0 failures
+
+- Nslookup: this is returning the correct IP and shows that the pr001/pr002 ns record is available
+
+
+
     
 ## Resources
-
+/

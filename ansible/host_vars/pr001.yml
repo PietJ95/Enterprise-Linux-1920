@@ -43,8 +43,8 @@ bind_zone_domains:
       aliases:
         - www
 
-    - name: '@'
-      ip: 192.0.2.10
+    # - name: '@'
+    #   ip: 192.0.2.10
 
     - name: pu002
       ip: 192.0.2.20
