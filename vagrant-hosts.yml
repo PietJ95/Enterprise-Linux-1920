@@ -29,31 +29,22 @@
 #Webserver
 - name: pu001
   ip: 192.0.2.10
+  netmask: 255.255.255.0
   mac: '08:00:27:66:5D:04'
 
 #Primary DNS
 - name: pr001
-  ip: 172.16.192.1
-  netmask: 255.255.0.0
   mac: '08:00:27:66:5D:01'
 
 #Secondary DNS
 - name: pr002
-  ip: 172.16.192.2
-  netmask: 255.255.0.0
   mac: '08:00:27:66:5D:02'
 
 #Fileserver
 - name: pr011
-  ip: 172.16.192.11
-  netmask: 255.255.0.0
   mac: '08:00:27:66:5D:03'
 
 #DHCP
 - name: pr003
   ip: 172.16.192.3
-
-
-- name: testDHCP
-  #mock ip, to be changed to dhcp in virtualbox
-  ip: 172.16.192.55
+  netmask: 255.255.0.0

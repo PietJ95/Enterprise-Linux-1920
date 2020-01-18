@@ -114,13 +114,7 @@ Turns out this is the way to go, however after doing some testing I realised tha
 
 ## Test report
 
-Problems I encountered and their solution:  
-- ...
-    - Solution:  
-    
-
-- ...
-    - Solution:   
+All tests passing. 
     
 ## Resources
 

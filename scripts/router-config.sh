@@ -39,6 +39,12 @@ set nat source rule 200 outbound-interface 'eth0'
 set nat source rule 200 source address '172.16.0.0/16'
 set nat source rule 200 translation address 'masquerade'
 
+set nat source rule 300 outbound-interface 'eth0'
+set nat source rule 300 source address '192.0.2.0/24'
+set nat source rule 300 translation address 'masquerade'
+
+
+
 #
 # Time
 #

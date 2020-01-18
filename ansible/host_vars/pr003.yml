@@ -13,31 +13,29 @@ dhcp_global_default_lease_time: 43200 #12u
 dhcp_global_domain_name: avalon.lan
 
 dhcp_subnets:
-  #hosts
+  #Guests
   - ip: 172.16.0.0
-    netmask: 255.255.128.0
+    netmask: 255.255.0.0
     range_begin: 172.16.0.2
     range_end: 172.16.127.254
     routers: 172.16.255.254
     default_lease_time: 14400 #4u
 
-   #workstations
-  - ip: 172.16.128.0
-    netmask: 255.255.192.0
+   #Workstations
+  - ip: 172.16.0.0
+    netmask: 255.255.0.0
     range_begin: 172.16.128.1
     range_end: 172.16.191.254
     routers: 172.16.255.254
     default_lease_time: 14400 #4u
 
-  #servers, gateway
-  - ip: 172.16.192.0
-    netmask: 255.255.192.0
-    # range_begin: 172.16.192.1
-    # range_end: 172.16.255.254
+  #Servers, gateway
+  - ip: 172.16.0.0
+    netmask: 255.255.0.0
+    range_begin: 172.16.192.1
+    range_end: 172.16.255.254
     routers: 172.16.255.254
     default_lease_time: 14400 #4u
-
-
 
 dhcp_hosts:
   - name: pu001

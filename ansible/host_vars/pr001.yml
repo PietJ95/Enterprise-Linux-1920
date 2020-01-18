@@ -31,10 +31,20 @@ bind_zone_domains:
       - pr002
 
     hosts:
+    - name: router
+      ip: 
+        - 192.0.2.254
+        - 172.16.255.254
+      aliases: 
+        - gw
+
     - name: pu001
       ip: 192.0.2.10
       aliases:
         - www
+
+    - name: '@'
+      ip: 192.0.2.10
 
     - name: pu002
       ip: 192.0.2.20

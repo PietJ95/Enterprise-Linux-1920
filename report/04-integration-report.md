@@ -55,6 +55,34 @@ But this is just the ip of the pool, every server in this pool needs to be added
 Subnet declaration:  
 Having some issues with the subnet masks, giving me overlapping errors. Need to look further into this.
 
+**Follow up**: I was actually trying to further subnet the internal network, but everything is supposed to be /24 and just further divided into pools for the DHCP.
+
+This should be the working config:
+
+    dhcp_subnets:
+    #Guests
+    - ip: 172.16.0.0
+        netmask: 255.255.0.0
+        range_begin: 172.16.0.2
+        range_end: 172.16.127.254
+        routers: 172.16.255.254
+        default_lease_time: 14400 #4u
+
+    #Workstations
+    - ip: 172.16.0.0
+        netmask: 255.255.0.0
+        range_begin: 172.16.128.1
+        range_end: 172.16.191.254
+        routers: 172.16.255.254
+        default_lease_time: 14400 #4u
+
+    #Servers, gateway
+    - ip: 172.16.0.0
+        netmask: 255.255.0.0
+        range_begin: 172.16.192.1
+        range_end: 172.16.255.254
+        routers: 172.16.255.254
+        default_lease_time: 14400 #4u
 
 ## VM integration
 All VM's need to have the correct default gateway set and the DNS servers in their network configuration  
@@ -62,15 +90,39 @@ Gateways:
 - DMZ -> 192.0.2.254
 - Internal -> 172.16.255.254
 
-DNS: 172.16.192.1 & 172.16.192.2
+**DNS**: 172.16.192.1 & 172.16.192.2
 
 Can't reach the HoGent DNS servers...
 After troubleshooting with Van Maele A. I received feedback that my client DNS config should not be the pr001 DNS server but the router, it acts as a forwarder to all requests.
 
-**So fix:**
+**So fix:** (Previous DNS config was wrong!)  
 in /etc/resolv.conf
-- DMZ: 192.0.2.254
-- Internal: 172.16.255.254
+- DMZ machines: 192.0.2.254
+- Internal machines: 172.16.255.254
+
+
+## Make the traffic go through the network and not via NAT
+What I wanted to do was just delete the NAT interface and add network routes but this would break vagrant connectivity in case I ever needed to provision again.
+
+**Adding ansible groups for each subnet and setting their default gateway appropriately:**
+
+    - hosts: internal
+      become: true
+      remote_user: root
+      tasks:
+        - name: Set default gateway with lowest metric
+          shell: route add default gw 172.16.255.254 metric 99
+        - name: Set dns servers
+          shell: printf "nameserver 172.16.255.254" > /etc/resolv.conf
+
+    - hosts: dmz
+      become: true
+      remote_user: root
+      tasks:
+        - name: Set default gateway
+          shell: route add default gw 192.0.2.254 metric 99
+        - name: Set dns servers
+          shell: printf "nameserver 192.0.2.254" > /etc/resolv.conf
 
 ## Test report
 

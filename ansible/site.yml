@@ -34,16 +34,32 @@
   roles:
     - bertvv.dhcp
 
+# - hosts: pr003
+#   become: true
+#   remote_user: root
+#   tasks:
+#     - name: Add lower metric route
+#       shell: ip route add 172.16.0.0/16 dev eth1 proto kernel scope link src 172.16.192.3 metric 99
+
 - hosts: internal
   become: true
   remote_user: root
   tasks:
-    # - name: Remove default gateway
-    #   shell: ip route flush 0/0
+    - name: Remove default gateway 10.0.2.2
+      shell: ip route del default
+    - name: Remove automatic default route
+      shell: sed -i 's/DEFROUTE=yes/DEFROUTE=no/g' /etc/sysconfig/network-scripts/ifcfg-eth0
+    - name: Set DNS server
+      shell: printf "nameserver 172.16.255.254" > /etc/resolv.conf
+
+- hosts: pr003
+  become: true
+  remote_user: root
+  tasks:
     - name: Set default gateway
       shell: route add default gw 172.16.255.254
-    - name: Set dns servers
-      shell: printf "nameserver 172.16.255.254" > /etc/resolv.conf
+    - name: Set default gateway for future restarts
+      shell: echo GATEWAY=172.16.255.254 >> /etc/sysconfig/network-scripts/ifcfg-eth1
 
 
 - hosts: dmz
@@ -52,6 +68,12 @@
   tasks:
     - name: Set default gateway
       shell: route add default gw 192.0.2.254
-    - name: Set dns servers
+    - name: Remove default gateway 10.0.2.2
+      shell: ip route del default
+    - name: Remove automatic default route
+      shell: sed -i 's/DEFROUTE=yes/DEFROUTE=no/g' /etc/sysconfig/network-scripts/ifcfg-eth0
+    - name: Set default gateway for future restarts
+      shell: echo GATEWAY=192.0.2.254 >> /etc/sysconfig/network-scripts/ifcfg-eth1
+    - name: Set DNS servers
       shell: printf "nameserver 192.0.2.254" > /etc/resolv.conf
 
