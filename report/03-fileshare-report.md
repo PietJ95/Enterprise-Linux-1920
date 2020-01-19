@@ -14,10 +14,10 @@ Setting up basic automated installation for all upcoming servers
         sudo /vagrant/test/runbats.sh
 
 
-- Ga naar `Deze Computer` op je host (Windows) en doe rechtermuis op een lege plaats en klik `Een netwerklocatie toevoegen`
-- Vervolgens geef je `ftp://172.16.192.11/techncial` in en klik je `Volgende`
-- Je kan nu een inlog definiëren, kies `alexanderd` en verbind. Het wachtwoord is ook `alexanderd`
-- Dit zou een maplocatie moeten openen zonder problemen.
+- Open je verkenner (Windows) en in de adresbalk geef je `\\files` in
+- Dit zou een maplocatie moeten openen waarin je de root van de shares ziet
+- Probeer `technical` te openen en geef als identificatie `alexanderd` en als wachtwoord `alexanderd` in
+- De share zou moeten geopend worden waarin je kan schrijven
         
 ## Procedure/Documentation
 
