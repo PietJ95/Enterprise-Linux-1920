@@ -7,6 +7,8 @@ rhbase_firewall_allow_services:
 dhcp_global_domain_name_servers:
   - 172.16.255.254
 
+dhcp_global_subnet_mask: 255.255.0.0
+
 #this will apply only to the known hosts, all other ranges override this
 dhcp_global_default_lease_time: 43200 #12u
 
@@ -22,12 +24,12 @@ dhcp_subnets:
     default_lease_time: 14400 #4u
 
    #Workstations
-  - ip: 172.16.0.0
-    netmask: 255.255.0.0
-    range_begin: 172.16.128.1
-    range_end: 172.16.191.254
-    routers: 172.16.255.254
-    default_lease_time: 14400 #4u
+  # - ip: 172.16.0.0
+  #   netmask: 255.255.0.0
+  #   range_begin: 172.16.128.1
+  #   range_end: 172.16.191.254
+  #   routers: 172.16.255.254
+  #   default_lease_time: 14400 #4u
 
   #Servers, gateway
   # - ip: 172.16.0.0
@@ -37,7 +39,11 @@ dhcp_subnets:
   #   routers: 172.16.255.254
   #   default_lease_time: 14400 #4u
 
-# dhcp_hosts:
+dhcp_hosts:
+  - name: workstation1
+    mac: '08:00:27:AF:BB:AA'
+    ip: 172.16.128.2
+
 #   - name: pu001
 #     mac: '08:00:27:66:5D:04'
 #     ip: 192.0.2.10
