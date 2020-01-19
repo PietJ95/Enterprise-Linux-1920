@@ -110,6 +110,9 @@ rhbase_users:
       - technical
 
 #samba vars
+samba_load_homes: true
+samba_homes_include: homefolders.conf
+
 samba_netbios_name: FILES
 samba_workgroup: AVALON
 samba_map_to_guest: bad user

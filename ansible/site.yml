@@ -5,7 +5,6 @@
   remote_user: root
   roles:
     - bertvv.rh-base
-    - ansible-fail2ban
 
 - hosts: pu001
   become: true
@@ -14,12 +13,14 @@
     - bertvv.mariadb
     - bertvv.httpd
     - bertvv.wordpress
+    - ansible-fail2ban
 
 - hosts: pr001,pr002
   become: true
   remote_user: root
   roles:
     - bertvv.bind
+    - ansible-fail2ban
 
 - hosts: pr011
   become: true 
@@ -27,12 +28,14 @@
   roles:
     - bertvv.samba
     - bertvv.vsftpd
+    - ansible-fail2ban
 
 - hosts: pr003
   become: true
   remote_user: root
   roles:
     - bertvv.dhcp
+    - ansible-fail2ban
 
 # - hosts: pr003
 #   become: true

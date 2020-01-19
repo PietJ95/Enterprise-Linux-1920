@@ -36,6 +36,7 @@
     - fail2ban
     - fail2ban-configuration
 
+
 - name: copy filters
   copy:
     src: "{{ fail2ban_filterd_path }}"
@@ -77,6 +78,9 @@
     - configuration
     - fail2ban
     - fail2ban-jails
+
+- name: create log path
+  shell: touch /var/log/auth.log
 
 - name: start and enable service
   systemd:

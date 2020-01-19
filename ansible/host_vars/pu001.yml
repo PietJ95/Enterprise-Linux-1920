@@ -28,12 +28,13 @@ wordpress_plugins:
   - name: wp-fail2ban
     version: 4.2.7.1
 
-#fail2ban regex
-# fail2ban_filterd_path: /templates
-# fail2ban_services:
-#   - name: wordpress
-#     port: http, https
-#     filter: wordpress
-#     logpath: /var/log/wordpress/access.log
-#     maxretry: 5
-#     findtime: 120
+#hard filter
+fail2ban_filterd_path: /usr/share/wordpress/wp-content/plugins/wp-fail2ban/filters.d/
+fail2ban_services:
+  - name: wordpress
+    port: http, https
+    filter: wordpress-hard
+    logpath: /var/log/auth.log
+    maxretry: 3
+    findtime: 120
+    bantime: 300
