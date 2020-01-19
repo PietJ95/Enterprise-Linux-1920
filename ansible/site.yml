@@ -54,17 +54,17 @@
       shell: sed -i 's/DEFROUTE=yes/DEFROUTE=no/g' /etc/sysconfig/network-scripts/ifcfg-eth0
     - name: Set default gateway
       shell: route add default gw 172.16.255.254
+    - name: Set default gateway for future restarts
+      shell: echo GATEWAY=172.16.255.254 >> /etc/sysconfig/network-scripts/ifcfg-eth1
     - name: Set DNS server
       shell: printf "nameserver 172.16.255.254" > /etc/resolv.conf
 
-- hosts: pr003
-  become: true
-  remote_user: root
-  tasks:
-    - name: Set default gateway
-      shell: route add default gw 172.16.255.254
-    - name: Set default gateway for future restarts
-      shell: echo GATEWAY=172.16.255.254 >> /etc/sysconfig/network-scripts/ifcfg-eth1
+# - hosts: pr003
+#   become: true
+#   remote_user: root
+#   tasks:
+#     - name: Set default gateway
+#       shell: route add default gw 172.16.255.254
 
 
 - hosts: dmz
