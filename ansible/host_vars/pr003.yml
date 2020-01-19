@@ -30,26 +30,26 @@ dhcp_subnets:
     default_lease_time: 14400 #4u
 
   #Servers, gateway
-  - ip: 172.16.0.0
-    netmask: 255.255.0.0
-    range_begin: 172.16.192.1
-    range_end: 172.16.255.254
-    routers: 172.16.255.254
-    default_lease_time: 14400 #4u
+  # - ip: 172.16.0.0
+  #   netmask: 255.255.0.0
+  #   range_begin: 172.16.192.1
+  #   range_end: 172.16.255.254
+  #   routers: 172.16.255.254
+  #   default_lease_time: 14400 #4u
 
-dhcp_hosts:
-  - name: pu001
-    mac: '08:00:27:66:5D:04'
-    ip: 192.0.2.10
+# dhcp_hosts:
+#   - name: pu001
+#     mac: '08:00:27:66:5D:04'
+#     ip: 192.0.2.10
 
-  - name: pr001
-    mac: '08:00:27:66:5D:01'
-    ip: 172.16.192.1
+#   - name: pr001
+#     mac: '08:00:27:66:5D:01'
+#     ip: 172.16.192.1
 
-  - name: pr002
-    mac: '08:00:27:66:5D:02'
-    ip: 172.16.192.2
+#   - name: pr002
+#     mac: '08:00:27:66:5D:02'
+#     ip: 172.16.192.2
       
-  - name: pr011
-    mac: '08:00:27:66:5D:03'
-    ip: 172.16.192.11
+#   - name: pr011
+#     mac: '08:00:27:66:5D:03'
+#     ip: 172.16.192.11
